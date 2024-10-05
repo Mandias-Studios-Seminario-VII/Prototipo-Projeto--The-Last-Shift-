@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_ataque_corpo_a_corpo_inimigo",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_ataque_corpo_a_corpo_inimigo",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

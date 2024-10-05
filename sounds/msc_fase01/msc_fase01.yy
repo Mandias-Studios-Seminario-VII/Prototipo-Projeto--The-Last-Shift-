@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"msc_fase01",
+  "audioGroupId":{
+    "name":"adg_music",
+    "path":"audiogroups/adg_music",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":2,
+  "conversionMode":0,
+  "duration":98.78245,
+  "name":"msc_fase01",
+  "parent":{
+    "name":"fase01",
+    "path":"folders/Sounds/fase01.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"msc_fase01.ogg",
+  "type":0,
+  "volume":0.3,
+}

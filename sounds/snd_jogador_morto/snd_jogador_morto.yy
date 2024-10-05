@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_jogador_morto",
+  "audioGroupId":{
+    "name":"adg_snd_effects",
+    "path":"audiogroups/adg_snd_effects",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":1.4369,
+  "name":"snd_jogador_morto",
+  "parent":{
+    "name":"jogador",
+    "path":"folders/Sounds/jogador.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_jogador_morto.mp3",
+  "type":0,
+  "volume":0.3,
+}

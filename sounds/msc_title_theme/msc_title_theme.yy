@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"msc_title_theme",
+  "audioGroupId":{
+    "name":"adg_music",
+    "path":"audiogroups/adg_music",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":0,
+  "duration":128.89052,
+  "name":"msc_title_theme",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"msc_title_theme.wav",
+  "type":0,
+  "volume":0.2,
+}
