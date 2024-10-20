@@ -45,7 +45,7 @@
   "option_android_logcat":"yoyo:V DEBUG:V AndroidRuntime:V",
   "option_android_minimum_sdk":"21",
   "option_android_orient_landscape":true,
-  "option_android_orient_landscape_flipped":true,
+  "option_android_orient_landscape_flipped":false,
   "option_android_orient_portrait":false,
   "option_android_orient_portrait_flipped":false,
   "option_android_package_company":"YG",

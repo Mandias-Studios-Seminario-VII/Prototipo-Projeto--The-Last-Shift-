@@ -22,4 +22,4 @@ menu[1] = "Opções";
 menu[0] = "Sair";
 
 menu_items = array_length(menu);
-menu_selecao = 2;
+menu_selecao = 4;
