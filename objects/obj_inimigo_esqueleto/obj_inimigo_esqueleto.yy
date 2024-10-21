@@ -36,13 +36,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_inimigo_esqueleto_idle",
-    "path":"sprites/spr_inimigo_esqueleto_idle/spr_inimigo_esqueleto_idle.yy",
-  },
-  "spriteMaskId":{
-    "name":"spr_inimigo_esqueleto_idle",
-    "path":"sprites/spr_inimigo_esqueleto_idle/spr_inimigo_esqueleto_idle.yy",
-  },
+  "spriteId":null,
+  "spriteMaskId":null,
   "visible":true,
 }
