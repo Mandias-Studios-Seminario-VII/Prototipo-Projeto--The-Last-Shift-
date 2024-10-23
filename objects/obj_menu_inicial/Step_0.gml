@@ -3,37 +3,40 @@
 // Alterando a seleção
 menu_x += (menu_x_alvo - menu_x) / menu_vel;
 
+// Teclas virtuais do menu inicial
+
 // Controles do menu
 if (menu_controle)
 {
-	if (keyboard_check_pressed(vk_up))
-	{
-		menu_selecao++;
-		if (menu_selecao >= menu_items) menu_selecao = 0;
-		audio_play_sound(snd_menu_cursor_move, 1, false);
-		
-	}
-	if (keyboard_check_pressed(vk_down))
+	if (device_mouse_check_button(global.dir_cima, mb_any))
 	{
 		menu_selecao--;
-		if (menu_selecao < 0) menu_selecao = menu_items - 1;
+		if (menu_selecao < 0) menu_selecao = menu_itens - 1;
+		audio_play_sound(snd_menu_cursor_move, 1, false);
+		show_debug_message("Tecla para cima precionada")
+		
+	}
+	if (device_mouse_check_button(global.dir_baixo, mb_any))
+	{
+		menu_selecao++;
+		if (menu_selecao >= menu_itens) menu_selecao = menu_itens - 1;
 		audio_play_sound(snd_menu_cursor_move, 1, false);
 	}
 	if (keyboard_check_pressed(vk_enter))
 	{
-		menu_x_alvo = gui_larg + 200;
+		menu_x_alvo = gui_larg + 150;
 		menu_ajuste = menu_selecao;
 		menu_controle = false;
 		audio_play_sound(snd_menu_cursor_select, 1, false);
 	}
 }
 
-if (menu_x > gui_larg + 150) && (menu_ajuste != -1)
+if (menu_x > gui_larg + gui_alt) && (menu_ajuste != -1)
 {
 	switch (menu_ajuste)
 	{
-		case 4: scr_slide_transicao(TRANS_MODO.NEXT); break; // Novo Jogo
-		case 3: // Continuar
+		case 0: scr_slide_transicao(TRANS_MODO.NEXT); break; // Novo Jogo
+		case 1: // Continuar
 		{
 			if (!file_exists(SAVEFILE))
 			{
@@ -48,7 +51,7 @@ if (menu_x > gui_larg + 150) && (menu_ajuste != -1)
 			}
 		}
 		break;
-		case 0: game_end(); break;
+		case 4: game_end(); break;
 	}
 
 }
