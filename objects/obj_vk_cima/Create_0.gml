@@ -1,3 +1,3 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
-global.dir_cima = virtual_key_add(64, 832, 61, 76, mb_any);
+/// @desc teclado virtual direcional para cima
+// Usado para movimentação do menu e subir escadas
+global.move_up = virtual_key_add(160, 704, 150, 150, vk_up);

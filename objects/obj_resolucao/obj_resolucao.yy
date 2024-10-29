@@ -1,15 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_vk_esquerda",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_resolucao",
+  "eventList":[],
   "managed":true,
-  "name":"obj_vk_esquerda",
+  "name":"obj_resolucao",
   "overriddenProperties":[],
   "parent":{
-    "name":"controles",
-    "path":"folders/Objects/controles.yy",
+    "name":"camera",
+    "path":"folders/Objects/camera.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -29,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_vk_esq",
-    "path":"sprites/spr_vk_esq/spr_vk_esq.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

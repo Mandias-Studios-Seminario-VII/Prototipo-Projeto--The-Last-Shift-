@@ -8,7 +8,7 @@ menu_x += (menu_x_alvo - menu_x) / menu_vel;
 // Controles do menu
 if (menu_controle)
 {
-	if (device_mouse_check_button(global.dir_cima, mb_any))
+	if (keyboard_check_pressed(vk_up))
 	{
 		menu_selecao--;
 		if (menu_selecao < 0) menu_selecao = menu_itens - 1;
@@ -16,10 +16,10 @@ if (menu_controle)
 		show_debug_message("Tecla para cima precionada")
 		
 	}
-	if (device_mouse_check_button(global.dir_baixo, mb_any))
+	if (keyboard_check_pressed(vk_down))
 	{
 		menu_selecao++;
-		if (menu_selecao >= menu_itens) menu_selecao = menu_itens - 1;
+		if (menu_selecao >= menu_itens) menu_selecao = 0;
 		audio_play_sound(snd_menu_cursor_move, 1, false);
 	}
 	if (keyboard_check_pressed(vk_enter))
@@ -31,7 +31,7 @@ if (menu_controle)
 	}
 }
 
-if (menu_x > gui_larg + gui_alt) && (menu_ajuste != -1)
+if (menu_ajuste != -1)
 {
 	switch (menu_ajuste)
 	{

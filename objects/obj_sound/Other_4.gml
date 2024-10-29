@@ -1,7 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 // Evento Room Start
-if (room == rm_menu) {
+if (room == rm_menu_inicial) {
     audio_stop_all(); // Para qualquer música que esteja tocando
     audio_play_sound(msc_title_theme, 0, true); // Toca a música da sala 1 em loop
 } else if (room == rm_fase01) {

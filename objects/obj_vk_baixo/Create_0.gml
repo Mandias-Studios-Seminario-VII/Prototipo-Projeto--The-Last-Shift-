@@ -1,3 +1,3 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
-global.dir_baixo = virtual_key_add(x, y, 61, 75, mb_any);
+/// @desc tecla virtual direcional para baixo
+// Usado para movimentação do menu e descer escadas
+global.move_down = virtual_key_add(160, 896, 150, 150, vk_down);

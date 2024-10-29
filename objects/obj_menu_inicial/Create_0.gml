@@ -12,7 +12,7 @@ menu_vel = 18; // menor valor mais rapido fica
 menu_fonte = fnt_menu;
 menu_item_alt = font_get_size(fnt_menu);
 menu_ajuste = -1;
-menu_controle = true;
+menu_controle = true; // Permite ao jogador selecionar apenas uma opção
 
 // Array de opções do menu
 menu_inicial[0] = "Novo Jogo";
