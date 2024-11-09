@@ -14,7 +14,7 @@ max_velh = 3;
 max_velv = 8;
 roll_vel = 6;
 pulo_duplo = 2;
-
+escada = false;
 mostrar_estado = true;
 combo = 0;
 img_spd = 30;

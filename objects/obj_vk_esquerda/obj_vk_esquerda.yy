@@ -3,6 +3,7 @@
   "%Name":"obj_vk_esquerda",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_vk_esquerda",
@@ -29,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_vk_esq",
-    "path":"sprites/spr_vk_esq/spr_vk_esq.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

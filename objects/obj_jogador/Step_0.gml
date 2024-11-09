@@ -4,12 +4,14 @@ var _chao = place_meeting(x, y + 1, obj_chao);
 // Variaveis de Movimentação e ataque
 if (tem_controle)
 {
-	var _jump, _down, _left, _right, _attack, _roll;
+	var _jump, _down, _up, _left, _right, _attack, _roll;
 
 	_jump	= keyboard_check_pressed(vk_space);
-	_left	= keyboard_check(ord("A"));
-	_right	= keyboard_check(ord("D"));
-	_attack = keyboard_check_pressed(ord("F"));
+	_down	= keyboard_check_pressed(vk_down);
+	_up		= keyboard_check_pressed(vk_up);
+	_left	= keyboard_check(vk_left);
+	_right	= keyboard_check(vk_right);
+	_attack = keyboard_check_pressed(vk_enter);
 	_roll	= keyboard_check_pressed(ord("Q"));
 
 	if (attack_buff > 0) attack_buff -= 1;
@@ -27,6 +29,8 @@ if (tem_controle)
 else
 {
 	_jump		= 0;
+	_down		= 0;
+	_up			= 0;
 	_left		= 0;
 	_right		= 0;
 	_attack		= 0;
@@ -163,6 +167,17 @@ switch (estado)
 		}
 		break;
 	}
+	#endregion
+	
+	#region escada
+	/*case "escada":
+	{
+		if (_up || _down)
+		{
+			if place_meeting(x, y, obj_escada) = escada = true;
+		}
+		break;
+	}*/
 	#endregion
 	
 	#region ataque
