@@ -1,4 +1,3 @@
-/// @description Inserir descrição aqui
-// Você pode escrever seu código neste editor
+/// @description Evento Create do obj_camera
 
 target_follow = noone;

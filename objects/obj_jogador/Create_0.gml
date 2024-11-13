@@ -13,8 +13,8 @@ vida_atual = vida_max;
 max_velh = 3;
 max_velv = 8;
 roll_vel = 6;
+vel = 0.6
 pulo_duplo = 2;
-escada = false;
 mostrar_estado = true;
 combo = 0;
 img_spd = 30;
@@ -28,6 +28,7 @@ is_jumping = false; // Variavel de som caso esteja em pulo
 is_attacking = false // Variavel de som caso esteja atacando
 was_hit = false; // Variavel de som caso esteja sendo atingido
 is_landed = false; // Variavel de som caso tenha aterrissado
+is_on_ladder = false; // Caso não estiver na escada
 
 if (!instance_exists(obj_sound_manager)) {
     instance_create_layer(x, y, layer, obj_sound_manager);

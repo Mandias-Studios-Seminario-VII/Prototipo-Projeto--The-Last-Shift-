@@ -25,7 +25,7 @@
   "option_android_icon_adaptivebg_xhdpi":"${base_options_dir}/android/icons_adaptivebg/xhdpi.png",
   "option_android_icon_adaptivebg_xxhdpi":"${base_options_dir}/android/icons_adaptivebg/xxhdpi.png",
   "option_android_icon_adaptivebg_xxxhdpi":"${base_options_dir}/android/icons_adaptivebg/xxxhdpi.png",
-  "option_android_icon_adaptive_generate":false,
+  "option_android_icon_adaptive_generate":true,
   "option_android_icon_adaptive_hdpi":"${base_options_dir}/android/icons_adaptive/hdpi.png",
   "option_android_icon_adaptive_ldpi":"${base_options_dir}/android/icons_adaptive/ldpi.png",
   "option_android_icon_adaptive_mdpi":"${base_options_dir}/android/icons_adaptive/mdpi.png",
@@ -75,7 +75,7 @@
   "option_android_tv_isgame":true,
   "option_android_tv_supports_leanback":true,
   "option_android_use_facebook":false,
-  "option_android_version":"1.0.0.0",
+  "option_android_version":"0.0.4",
   "resourceType":"GMAndroidOptions",
   "resourceVersion":"2.0",
 }

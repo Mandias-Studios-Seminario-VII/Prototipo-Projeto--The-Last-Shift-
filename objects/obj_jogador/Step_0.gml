@@ -7,8 +7,8 @@ if (tem_controle)
 	var _jump, _down, _up, _left, _right, _attack, _roll;
 
 	_jump	= keyboard_check_pressed(vk_space);
-	_down	= keyboard_check_pressed(vk_down);
-	_up		= keyboard_check_pressed(vk_up);
+	_down	= keyboard_check(vk_down);
+	_up		= keyboard_check(vk_up);
 	_left	= keyboard_check(vk_left);
 	_right	= keyboard_check(vk_right);
 	_attack = keyboard_check_pressed(vk_enter);
@@ -20,8 +20,10 @@ if (tem_controle)
 	velh = (_right - _left) * max_velh * global.vel_mult;
 
 	// Adcionando velocidade vertical (gravidade)
-	velv += gravidade * global.vel_mult;
-
+	if (is_on_ladder == false)
+	{
+		velv += gravidade * global.vel_mult;
+	}
 	// Limitando a gravidade
 	velv = clamp(velv, -max_velv, max_velv * 2);
 	
@@ -73,12 +75,13 @@ switch (estado)
 			estado = "ataque";
 			image_index = 0;
 		}
-		// Deslizando
-		else if (_roll)
+		
+		if (place_meeting(x, y, obj_escada)) 
 		{
-			estado = "deslizando";
-			image_index = 0;
+			estado = "escada";
+		velv = 0; // Zera a velocidade vertical ao entrar na escada
 		}
+		
 		
 		if (is_landed)
 		{
@@ -142,7 +145,7 @@ switch (estado)
 		{
 			// Jogador caindo
 			sprite_index = spr_jogador_falling;
-		} else
+		}
 		{
 			// Comportamento do estado de pulo
 			sprite_index = spr_jogador_jump;
@@ -151,6 +154,12 @@ switch (estado)
 			{
 				image_index = image_number - 1;
 			}
+		}
+		
+		if (place_meeting(x, y, obj_escada)) 
+		{
+			estado = "escada";
+			velv = 0; // Zera a velocidade vertical ao entrar na escada
 		}
 		
 		// Condição de troca de estado
@@ -170,14 +179,37 @@ switch (estado)
 	#endregion
 	
 	#region escada
-	/*case "escada":
+	case "escada":
 	{
-		if (_up || _down)
-		{
-			if place_meeting(x, y, obj_escada) = escada = true;
+		sprite_index = spr_jogador_climb;
+		image_speed = 1;
+    
+		// Desativando a gravidade enquanto o jogador está na escada
+		velv = 0;
+		velh = 0;
+		
+		// Movimentação ao subir ou descer a escada
+		var _vertical_input = keyboard_check(vk_down) - keyboard_check(vk_up);
+		
+		// Verifica se ainda está tocando a escada
+		if (place_meeting(x, y, obj_escada)) {
+			is_on_ladder = true;
+        
+			if (_vertical_input != 0) {
+				velv = _vertical_input * vel; // Movimento vertical controlado
+				y += velv;
+			} 
 		}
+		else 
+		{
+        // Sai da escada ao chegar ao topo ou base
+        is_on_ladder = false;
+        estado = "parado";
+		}
+		
+		
 		break;
-	}*/
+	}
 	#endregion
 	
 	#region ataque
