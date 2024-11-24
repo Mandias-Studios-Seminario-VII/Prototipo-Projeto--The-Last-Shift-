@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"msc_cena_final",
+  "audioGroupId":{
+    "name":"adg_music",
+    "path":"audiogroups/adg_music",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":146.94133,
+  "name":"msc_cena_final",
+  "parent":{
+    "name":"cena final",
+    "path":"folders/Sounds/cena final.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"msc_cena_final.ogg",
+  "type":0,
+  "volume":0.45,
+}

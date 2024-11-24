@@ -22,7 +22,19 @@ creditos = [
 	["Designer de Jogos", "Nelson Machado"],
 	["Designer de Som", "Yhugo Gabriel"],
 	["Lider de QA", "Yhugo Gabriel"],
-	["Equipe de QC", "Yhugo/Elson/Nelson/Victor/Enderson"]
+	["Equipe de QC", "Yhugo/Elson/Nelson/Victor/Enderson"],
+	["Sprites do personagem", "Mucho Pixels"],
+	["Pacote de Tileset do Jogo", "Craftpix.net"],
+	["Controles de Tela", "Kenney.nl"],
+	["Fonte Monogram", "datagoblin"],
+	["Fonte Bitwise", "Dafont.com"],
+	["Fonte Game Paused", "Dafont.com"],
+	["Fonte VCR OSD Mono", "Dafont.com"],
+	["Efeitos Sonoros", "Yatch Club Games"],
+	["Musica da Fase 01", "OpenGameArt.org"],
+	["Musica do Menu inicial", "OpenGameArt.org"],
+	["Musica da Tela de Creditos", "Trevor Lentz"],
+	["Musica da cena de corte", "Yubatake/Opengameart.org"]
 ];
 
 espacamento = 58;

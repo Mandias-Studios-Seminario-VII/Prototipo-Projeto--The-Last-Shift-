@@ -52,8 +52,7 @@ if (menu_ajuste != -1)
 		}
 		break;
 		case 2: scr_slide_transicao(TRANS_MODO.GOTO, rm_creditos) break;
-		case 3: scr_slide_transicao(TRANS_MODO.GOTO, rm_opcoes) break;
-		case 4: game_end(); break;
+		case 3: game_end(); break;
 	}
 
 }

@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"obj_escada",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"obj_escada",
   "overriddenProperties":[],
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_escada",
-    "path":"sprites/spr_escada/spr_escada.yy",
+    "name":"spr_escada_01",
+    "path":"sprites/spr_escada_01/spr_escada_01.yy",
   },
   "spriteMaskId":null,
   "visible":true,

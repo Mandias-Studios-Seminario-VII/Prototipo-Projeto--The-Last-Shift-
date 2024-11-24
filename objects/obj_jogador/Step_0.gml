@@ -1,26 +1,56 @@
-// Checando se o jogador esta tocando o chão
-var _chao = place_meeting(x, y + 1, obj_chao);
+// Checando se o jogador está tocando o chão ou o topo de uma caixa
+var _chao = place_meeting(x, y + 1, obj_chao) || place_meeting(x, y + 1, obj_caixa);
+
+
+// Empurrando a caixa
+if (place_meeting(x + velh, y, obj_caixa)) {
+    // Referência à caixa próxima
+    var caixa = instance_place(x + velh, y, obj_caixa);
+
+    if (caixa != noone) {
+        // Empurra a caixa na direção horizontal
+        caixa.velh = velh;
+    }
+}
+
+// Corrige a posição ao cair na caixa
+if (place_meeting(x, y + 1, obj_caixa)) {
+    var caixa = instance_place(x, y + 1, obj_caixa);
+    if (caixa != noone) {
+        y = caixa.bbox_top - sprite_height / 2; // Posiciona no topo da caixa
+    }
+}
+
+// Verificar se a vida chegou a zero
+if (gerenciador_vida.vida_atual <= 0 && estado != "morto") {
+    // Mudar o estado para "game_over"
+    estado = "morto";
+}
+
+
+// Gerenciamento da invencibilidade
+if (invencivel) {
+    tempo_invencibilidade -= 1; // Decrementa o temporizador
+    if (tempo_invencibilidade <= 0) {
+        invencivel = false; // Desativa a invencibilidade
+    }
+}
 
 // Variaveis de Movimentação e ataque
 if (tem_controle)
 {
-	var _jump, _down, _up, _left, _right, _attack, _roll;
+	var _jump, _movimento_vertical, _right, _left;
 
-	_jump	= keyboard_check_pressed(vk_space);
-	_down	= keyboard_check(vk_down);
-	_up		= keyboard_check(vk_up);
-	_left	= keyboard_check(vk_left);
-	_right	= keyboard_check(vk_right);
-	_attack = keyboard_check_pressed(vk_enter);
-	_roll	= keyboard_check_pressed(ord("Q"));
-
-	if (attack_buff > 0) attack_buff -= 1;
+	_jump				= keyboard_check_pressed(vk_space);
+	_movimento_vertical = keyboard_check(vk_up) - keyboard_check(vk_down);
+	_right				= keyboard_check(vk_right);
+	_left				= keyboard_check(vk_left);
 
 	// Controles de Movimento do jogador
 	velh = (_right - _left) * max_velh * global.vel_mult;
 
 	// Adcionando velocidade vertical (gravidade)
-	if (is_on_ladder == false)
+	if (!is_on_ladder)
 	{
 		velv += gravidade * global.vel_mult;
 	}
@@ -30,13 +60,10 @@ if (tem_controle)
 }
 else
 {
-	_jump		= 0;
-	_down		= 0;
-	_up			= 0;
-	_left		= 0;
-	_right		= 0;
-	_attack		= 0;
-	_roll		= 0;
+	_jump					= 0;
+	_movimento_vertical		= 0;
+	_left					= 0;
+	_right					= 0;
 }
 
 // Iniciando a maquina de estados do jogador
@@ -69,12 +96,6 @@ switch (estado)
 				sound_manager.jump_snd = true;
 			}
 	}
-		// Atacando
-		else if (_attack)
-		{
-			estado = "ataque";
-			image_index = 0;
-		}
 		
 		if (place_meeting(x, y, obj_escada)) 
 		{
@@ -121,19 +142,6 @@ switch (estado)
 				sound_manager.jump_snd = true;
 			}
 		}
-		// Atacando
-		else if (_attack)
-		{
-			estado = "ataque";
-			velh = 0;
-			image_index = 0;
-		}
-		// Deslizando
-		else if (_roll)
-		{
-			estado = "deslizando";
-			image_index = 0;
-		}
 		break;
 	}
 	#endregion
@@ -164,10 +172,6 @@ switch (estado)
 		
 		// Condição de troca de estado
 		// No chão
-		if (_attack)
-		{
-			estado = "ataque aereo";
-		}
 		if (_chao)
 		{
 			estado = "parado";
@@ -179,118 +183,73 @@ switch (estado)
 	#endregion
 	
 	#region escada
+	
+	// Caso esteja perto de ou em uma escada
 	case "escada":
 	{
-		sprite_index = spr_jogador_climb;
-		image_speed = 1;
-    
-		// Desativando a gravidade enquanto o jogador está na escada
-		velv = 0;
-		velh = 0;
-		
-		// Movimentação ao subir ou descer a escada
-		var _vertical_input = keyboard_check(vk_down) - keyboard_check(vk_up);
-		
-		// Verifica se ainda está tocando a escada
-		if (place_meeting(x, y, obj_escada)) {
+		if (place_meeting(x, y, obj_escada))
+		{
+			// Define a sprite somente se ela não estiver configurada
+			if (sprite_index != spr_jogador_climb)
+			{
+				sprite_index = spr_jogador_climb;
+				image_index = 0;  // Garante que a animação começa do início apenas uma vez
+			}
+
 			is_on_ladder = true;
-        
-			if (_vertical_input != 0) {
-				velv = _vertical_input * vel; // Movimento vertical controlado
-				y += velv;
-			} 
+			velv = 0;  // Zera a velocidade vertical padrão enquanto sobe
 		}
-		else 
+		else
 		{
-        // Sai da escada ao chegar ao topo ou base
-        is_on_ladder = false;
-        estado = "parado";
+			is_on_ladder = false;
+			estado = "parado"; // Sai do estado de escada se não estiver mais colidindo
 		}
 		
-		
-		break;
-	}
-	#endregion
-	
-	#region ataque
-	case "ataque":
-	{
-		if (!is_attacking)
+		// Caso estiver na escada
+		if (is_on_ladder)
 		{
-			if (sound_manager != noone) 
-			{
-				sound_manager.attack_snd = true;
-			}
-			is_attacking = true;
-		}
-		if (combo == 0)
-		{
-		// Comportamento do estado de ataque 01
-		sprite_index = spr_jogador_attack01;
-		} else if (combo == 1)
-		{
-			// Comportamento do estado de ataque 02
-			sprite_index = spr_jogador_attack02;
-		} else if (combo == 2)
-		
-		// Configuração do buffer de ataque do jogador
-		if (_attack && combo < 1)
-		{
-			attack_buff = room_speed;
-		}
-		
-		// Condição para fazer combo
-		if (attack_buff && combo < 1 && image_index >= image_number - 1)
-		{
-			combo++;
-			image_index = 0;
-			posso_causar_dano = true;
-			if (dano)
-			{
-				instance_destroy(dano, false);
-				dano = noone
-			}
+			// Desativando a gravidade
+			velv = 0
 			
-			attack_buff = 0;
-		}
-		
-		// Adicionando o objeto de dano
-		if (image_index >= 2 && dano == noone && posso_causar_dano)
-		{
-			dano			  = instance_create_layer(x + sprite_width / 2, y - sprite_height / 2, layer, obj_dano);
-			dano.dano		  = ataque * attack_multiplier;
-			dano.pai		  = id;
-			posso_causar_dano = false;
-		}
-		
-		// Saindo do estado de ataque
-		if (image_index > image_number-1) // Imagem inicial maior que total de imagens
-		{
-			estado = "parado";
-			combo = 0;
-			posso_causar_dano = true;
-			attack_multiplier += .5;
-			is_attacking = false;
-			if (dano)
-			{
-				instance_destroy(dano, false);
-				dano = noone
-			}
+			/*if (_movimento_vertical == 1) velv = -2
+			if (_movimento_vertical == -1) velv = 2*/
 			
+			// Subindo e descendo a escada
+			if (_movimento_vertical != 0) velv = _movimento_vertical * -1
 		}
-		if (_roll)
+		
+		// Verificando se pode pular, mas somente se estiver no chão
+		if (_jump && _chao)
 		{
-			estado = "deslizando";
-			image_index = 0;
-			combo = 0;
-			is_attacking = false;
-			// Caso jogador deslizer apos a animação de dano o dano é cancelado
-			if (dano)
-			{
-				instance_destroy(dano, false);
-				dano = noone;
-			}
+			velv = -max_velv; // Dá impulso vertical
+            estado = "pulando";
 		}
+		
+		// Sai da escada ao chegar no topo ou base
+        if (!place_meeting(x, y + sign(_movimento_vertical), obj_escada)) {
+            estado = "parado"; // Define o próximo estado dependendo do contexto
+        }
+		
+		// Em caso de colisão no eixo x
+		if (place_meeting(x + velh, y, obj_chao))
+		{
+			while (!place_meeting(x + sign(velh), y, obj_chao))
+			{
+				x += sign(velh)
+			}
+			velh = 0;
+		}
+		
+		// Em caso de colisão no eixo y
+		if (place_meeting(x , y + velv, obj_chao))
+		{
+			while (!place_meeting(x , y + sign(velv), obj_chao))
+			{
+				y += sign(velv);
+			}
+			velv = 0
+		}
+		
 		break;
 	}
 	#endregion
@@ -308,14 +267,11 @@ switch (estado)
 			screenshake(3);
 			
 			// Adicionando o efeito sonoro de dano
-			if (sound_manager != noone && !was_hit)
+			if (sound_manager != noone)
 			{
 				sound_manager.damage_snd = true;
-				was_hit = true;
 			}
 		}
-		// Fazendo o jogador ficar parado ao levar dano por alguns instantes
-		velh = 0;
 		
 		// Condição de troca de estado
 		if (image_index > image_number - 1)
@@ -324,7 +280,7 @@ switch (estado)
 			{
 				estado = "parado";
 				was_hit = false; // Resetando o efeito sonoro de ferido
-			} else if (vida_atual <= 0) // Verificando se o jogador perdeu toda a vida, então ele morre
+			} else if (gerenciador_vida.vida_atual <= 0 && estado != "morto") // Verificando se o jogador perdeu toda a vida, então ele morre
 			{
 				estado = "morto";
 			}
@@ -367,28 +323,6 @@ switch (estado)
 		break;
 	}
 	#endregion
-	
-	#region deslizando
-	case "deslizando":
-	{
-		if (sprite_index != spr_jogador_slide)
-		{
-			// Comportamento do estado deslizando
-			sprite_index = spr_jogador_slide;
-			image_index = 0;
-		}
 		
-		// Adcionando velocidade ao deslizar
-		velh = image_xscale * roll_vel;
-		
-		// Saindo do estado de deslizar
-		if (image_index >= image_number - 1 || !_chao)
-		{
-			estado = "parado";
-		}
-		break;
-	}
-	#endregion
-	
 }
 

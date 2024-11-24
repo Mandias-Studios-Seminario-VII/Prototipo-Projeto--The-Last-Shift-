@@ -3,14 +3,6 @@
 // Efeitos sonoros do jogador
 #region som_jogador
 // Condição para o efeito sonoro ser ouvido
-if (attack_snd == true)
-{
-	//Tocando o efeito sonoro de ataque
-	audio_play_sound(snd_jogador_attack, 1, false);
-
-	//Resetando a variavel
-	attack_snd = false;
-}
 
 if (jump_snd == true)
 {

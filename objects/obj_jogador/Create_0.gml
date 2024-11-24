@@ -7,8 +7,15 @@ event_inherited();
 
 
 
-vida_max = 8;
+vida_max = 10;
 vida_atual = vida_max;
+gerenciador_vida = new ScrgerenciadorVida(vida_max)
+
+invencivel = false; // Controle de invencibilidade
+tempo_invencibilidade = 0; // Temporizador para controlar a duração da invencibilidade
+estado = "parado"; // Garante que o jogador tenha um estado inicial definido
+
+
 
 max_velh = 3;
 max_velv = 8;
@@ -16,19 +23,11 @@ roll_vel = 6;
 vel = 0.6
 pulo_duplo = 2;
 mostrar_estado = true;
-combo = 0;
 img_spd = 30;
-dano = noone;
-ataque = 1;
-posso_causar_dano = true;
-attack_multiplier = 1;
-attack_buff = room_speed;
 tem_controle = true;
 is_jumping = false; // Variavel de som caso esteja em pulo
-is_attacking = false // Variavel de som caso esteja atacando
-was_hit = false; // Variavel de som caso esteja sendo atingido
 is_landed = false; // Variavel de som caso tenha aterrissado
-is_on_ladder = false; // Caso não estiver na escada
+is_on_ladder = false; // Confirmação se está ou não na escada
 
 if (!instance_exists(obj_sound_manager)) {
     instance_create_layer(x, y, layer, obj_sound_manager);

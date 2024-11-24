@@ -21,5 +21,5 @@
   "sampleRate":44100,
   "soundFile":"snd_menu_cursor_move.mp3",
   "type":0,
-  "volume":0.2,
+  "volume":0.3,
 }

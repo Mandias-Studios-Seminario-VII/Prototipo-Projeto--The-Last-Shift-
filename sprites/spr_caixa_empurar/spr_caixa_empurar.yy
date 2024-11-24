@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"spr_caixa_empurar",
   "bboxMode":0,
-  "bbox_bottom":21,
+  "bbox_bottom":31,
   "bbox_left":0,
-  "bbox_right":27,
+  "bbox_right":40,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":22,
+  "height":32,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"e0869b3d-94d3-4954-b503-2f4fc748b537","blendMode":0,"displayName":"default","isLocked":false,"name":"e0869b3d-94d3-4954-b503-2f4fc748b537","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":28,
+  "width":41,
 }

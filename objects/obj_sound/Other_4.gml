@@ -7,7 +7,10 @@ if (room == rm_menu_inicial) {
 } else if (room == rm_fase01) {
     audio_stop_all(); // Para qualquer música que esteja tocando
     audio_play_sound(msc_fase01, 0, true); // Toca a música da sala 2 em loop
-} else if (room == rm_fase02) {
-    audio_stop_all(); // Para qualquer música que esteja tocando
-    audio_play_sound(msc_fase02, 0, true); // Toca a música da sala 3 em loop
+} else if (room == rm_creditos) {
+	audio_stop_all();
+	audio_play_sound(msc_creditos, 0, true);
+} else if (room == rm_final) {
+	audio_stop_all();
+	audio_play_sound(msc_cena_final, 0, true);
 }

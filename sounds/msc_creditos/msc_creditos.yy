@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"msc_creditos",
+  "audioGroupId":{
+    "name":"adg_music",
+    "path":"audiogroups/adg_music",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":195.192,
+  "name":"msc_creditos",
+  "parent":{
+    "name":"creditos",
+    "path":"folders/Sounds/creditos.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"msc_creditos.mp3",
+  "type":0,
+  "volume":0.45,
+}
