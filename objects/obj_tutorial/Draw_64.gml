@@ -10,4 +10,4 @@ draw_text(700, 524, "<- Botão usado para pausar jogo");
 
 draw_text(700, 670, "<- Botão de retorno para tela inicial do jogo");
 
-draw_text(580, 910, "Botões de pulo (B) e interação (A) do jogo ->")
+draw_text(750, 910, "Botões de pulo e seleção do jogo ->")

@@ -4,5 +4,5 @@ pausa_superf = -1;
 pausa_superf_buffer = -1;
 
 // Resolução do jogo
-largura_res = display_get_width();  // Captura a largura atual da tela
-altura_res = display_get_height();  // Captura a altura atual da tela
+largura_res = display_get_gui_width();  // Captura a largura atual da tela
+altura_res = display_get_gui_height();  // Captura a altura atual da tela

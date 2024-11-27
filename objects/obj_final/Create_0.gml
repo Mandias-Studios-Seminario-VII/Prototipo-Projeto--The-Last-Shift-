@@ -12,6 +12,6 @@ letras = 0;
 linha_atual = 0;
 len = string_length(textofinal[linha_atual]);
 texto = "";
-res_larg = display_get_width();
-res_alt = display_get_height();
+res_larg = display_get_gui_width();
+res_alt = display_get_gui_height();
 

@@ -1,3 +1,4 @@
+// @desc Evento step do objeto de creditos do jogo
 // Atualiza a posição do texto para rolar para cima, com um valor de deslocamento fixo
 y_texto -= velocidade;
 

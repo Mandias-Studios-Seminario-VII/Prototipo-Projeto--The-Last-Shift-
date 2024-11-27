@@ -1,3 +1,4 @@
+/// @description Desenhando os creditos do jogo
 var y_pos = y_texto; // Começa na posição inicial, garantindo que seja consistente
 
 // Loop pelos itens da lista de créditos
