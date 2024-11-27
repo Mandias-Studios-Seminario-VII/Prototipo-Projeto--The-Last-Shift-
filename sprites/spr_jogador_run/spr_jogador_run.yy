@@ -66,7 +66,7 @@
     },
     "name":"spr_jogador_run",
     "playback":1,
-    "playbackSpeed":12.0,
+    "playbackSpeed":14.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

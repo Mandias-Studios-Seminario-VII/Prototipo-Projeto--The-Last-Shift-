@@ -35,7 +35,7 @@ if (menu_ajuste != -1)
 {
 	switch (menu_ajuste)
 	{
-		case 0: scr_slide_transicao(TRANS_MODO.NEXT); break; // Novo Jogo
+		case 0: scr_slide_transicao(TRANS_MODO.GOTO, rm_tutorial); break; // Novo Jogo
 		case 1: // Continuar
 		{
 			if (!file_exists(SAVEFILE))
