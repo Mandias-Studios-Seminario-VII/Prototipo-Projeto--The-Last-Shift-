@@ -17,8 +17,9 @@ menu_controle = true; // Permite ao jogador selecionar apenas uma opção
 // Array de opções do menu
 menu_inicial[0] = "Novo Jogo";
 menu_inicial[1] = "Continuar";
-menu_inicial[2] = "Creditos";
-menu_inicial[3] = "Sair";
+menu_inicial[2] = "Creditos"
+menu_inicial[3] = "Opcoes";
+menu_inicial[4] = "Sair";
 
 
 menu_itens = array_length(menu_inicial);

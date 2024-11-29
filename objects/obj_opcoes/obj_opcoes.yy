@@ -1,16 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_vk_som",
+  "%Name":"obj_opcoes",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_vk_som",
+  "name":"obj_opcoes",
   "overriddenProperties":[],
   "parent":{
-    "name":"controles",
-    "path":"folders/Objects/controles.yy",
+    "name":"som",
+    "path":"folders/Objects/som.yy",
   },
   "parentObjectId":null,
   "persistent":false,

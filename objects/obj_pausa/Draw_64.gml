@@ -1,7 +1,6 @@
 /// @description Evento draw_gui do obj_pausa
 // Desenhando os botões do jogo (Só funciona aqui!!)
 draw_sprite_ext(spr_vk_pausar, 0, 1664, 32, 1, 1, 0, c_white, 1); // Desenhando o botão de pausa
-draw_sprite_ext(spr_vk_som, 0, 1536, 32, 1, 1, 0, c_white, 1); // Desenhando o botão de Ativar/Desativar som
 draw_sprite_ext(spr_vk_retornar, 0, 1792, 32, 1, 1, 0, c_white, 1); // Desenhando o botão de retorno
 
 if (esta_pausado)
